@@ -88,12 +88,49 @@ function getSuggestedComps() {
     return suggestedComps;
 }
 
+function appendComp(comp) {
+	var paragraph = document.createElement('p');
+	var compHtml = '<b>' + comp.name + '</b>&nbsp;';
+	for (var i = 0; i < comp.champs.length; i++) {
+		if (comp.champs[i].onlyEarly) {
+			compHtml += '<del>' + comp.champs[i].name + '</del>  ';
+		} else {
+			compHtml += comp.champs[i].name + '  ';
+		}
+	}
+	
+	compHtml += '<br/><b>Itemize</b>&nbsp;';
+	var itemizedChamps = comp.champs.filter(_ => _.items.length > 0);
+	for (var i = 0; i < itemizedChamps.length; i++) {
+		var champ = itemizedChamps[i];
+		compHtml += champ.name + '(' + champ.items.join(', ') + ')  ';
+	}
+	
+    var compItems = comp.requiredItems.slice();
+	for (var i = 0; i < window.selectedItems.length; i++) {
+		compItems.splice(compItems.indexOf(window.selectedItems[i]), 1)
+	}
+	var sortedItems = [];
+	for (var i = 0; i < compItems.length;) {
+		var currentItem = compItems[i];
+		var lastIndex = compItems.lastIndexOf(currentItem) + 1;
+		sortedItems.push(compItems[i] + ' x' + (lastIndex - i));
+		i = lastIndex;
+	}	
+	compHtml += '<br/><b>Missing Items</b>&nbsp;';
+	compHtml += sortedItems.join(', ');
+	
+	paragraph.innerHTML = compHtml;
+	paragraph.className = 'col-12';
+	document.getElementById('suggested-comps').appendChild(paragraph);
+}
+
 function updateSuggestedComps() {
     var suggestedComps = getSuggestedComps();
     
     document.getElementById('suggested-comps').innerHTML = '';
     for (var i = 0; i < suggestedComps.length; i++) {
-        appendButton(suggestedComps[i].name, 'suggested-comps');   
+		appendComp(suggestedComps[i]);
     }
 }
 
