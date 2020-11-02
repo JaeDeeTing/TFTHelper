@@ -31,7 +31,12 @@ function championClickHandler(e) {
         appendButton(selected, 'selected-champions', 'col-3', selectedChampClickHandler);
         window.selectedChamps.push(selected);
         updateSuggestedComps();
-    }
+    } else {
+		$('#selected-champions').find("button:contains('" + selected + "')").remove();
+		var index = window.selectedChamps.indexOf(selected);
+		window.selectedChamps.splice(index, 1);
+		updateSuggestedComps();
+	}
 }
 
 function itemClickHandler(e) {
