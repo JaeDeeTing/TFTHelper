@@ -17,9 +17,16 @@
 		  crossorigin="anonymous"></script>
 		<script src="./champions-v4.js"></script>
 		<script src="./items-v4.js"></script>
+		<script src="./comps-v4.js"></script>
 		<script src="./tfthelper.js"></script>
 		
 		<div class="container">
+			<div>Menu</div>
+			<div class="row options">
+                <button onclick="resetChoices()">Reset</button>
+            </div>
+		</div>
+		<div class="container border-top">
 			<div>Cost 1 Champions</div>
 			<div class="row options" id="champions-1"></div>
 			<div>Cost 2 Champions</div>
@@ -37,5 +44,9 @@
 			<div>Selected Items</div>
 			<div class="row options" id="selected-items"></div>
 		</div>
+        <div class="container border-top">
+            <div>Suggested Comp(s)</div>
+			<div class="row" id="suggested-comps"></div>
+        </div>
 	</body>
 </html>
