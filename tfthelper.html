@@ -6,6 +6,12 @@
 				margin-bottom: 1.5em;
 			}
 			
+			.selected {
+				font-weight: bold;
+				background: #444;
+				color: white;
+			}
+			
 			.border-top {
 				border-top: 2px solid;
 			}
@@ -17,6 +23,7 @@
 		  crossorigin="anonymous"></script>
 		<script src="./champions-v4.js"></script>
 		<script src="./items-v4.js"></script>
+		<script src="./specialElements-v4.js"></script>
 		<script src="./comps-v4.js"></script>
 		<script src="./tfthelper.js"></script>
 		
@@ -27,23 +34,29 @@
 				<a style="margin-left:1em" href="https://tftactics.gg/tierlist/team-comps" target="_blank">Detailed Comps</a>
             </div>
 		</div>
-		<div class="container border-top">
-			<div>Cost 1 Champions</div>
-			<div class="row options" id="champions-1"></div>
-			<div>Cost 2 Champions</div>
-			<div class="row options" id="champions-2"></div>
-		</div>
 		<div class="container">
 			<div>Base Items</div>
 			<div class="row options" id="base-items"></div>
 		</div>
-		<div class="container border-top">
-			<div>Selected Champions</div>
-			<div class="row options" id="selected-champions"></div>
-		</div>
 		<div class="container">
+			<div>Elements</div>
+			<div class="row options" id="special-elements"></div>
+		</div>
+		<div class="container border-top" id="champions-wrapper">
+			<div>Cost 1 Champions</div>
+			<div class="row options" id="champions-1"></div>
+			<div>Cost 2 Champions</div>
+			<div class="row options" id="champions-2"></div>
+			<div>Cost 3 Champions</div>
+			<div class="row options" id="champions-3"></div>
+		</div>
+		<div class="container border-top">
 			<div>Selected Items</div>
 			<div class="row options" id="selected-items"></div>
+		</div>
+		<div class="container">
+			<div>Selected Champions</div>
+			<div class="row options" id="selected-champions"></div>
 		</div>
         <div class="container border-top">
             <div>Suggested Comp(s)</div>

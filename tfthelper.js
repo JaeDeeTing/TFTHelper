@@ -1,21 +1,28 @@
 function init() {
 	appendChampions(1);
 	appendChampions(2);
+	appendChampions(3);
 	
 	for (var i = 0; i < window.baseItems.length; i++) {
 		appendButton(window.baseItems[i], 'base-items', 'col-6', itemClickHandler);
 	}
-    
-    window.selectedChamps = [];
-    window.selectedItems = [];
+	
+	for (var i = 0; i < window.specialElements.length; i++) {
+		appendButton(window.specialElements[i], 'special-elements', 'col-2', specialElementClickHandler);
+	}
+	
+    resetChoices();
 }
 
 function resetChoices() {
     window.selectedChamps = [];
     window.selectedItems = [];
+	window.selectedElement = null;
     document.getElementById('selected-champions').innerHTML = '';
     document.getElementById('selected-items').innerHTML = '';
     document.getElementById('suggested-comps').innerHTML = '';
+	$('#special-elements button').removeClass('selected');
+	$('#champions-wrapper button').prop('disabled', true);
 }
 
 function appendChampions(cost) {
@@ -53,6 +60,17 @@ function selectedChampClickHandler(e) {
     updateSuggestedComps();
 }
 
+function specialElementClickHandler(e) {
+	$('#special-elements button').removeClass('selected');
+	if (e.currentTarget.innerHTML !== window.selectedElement) {
+		$(e.currentTarget).addClass('selected');
+		window.selectedElement = e.currentTarget.innerHTML;
+	} else {
+		window.selectedElement = null;
+	}
+	updateSuggestedComps();
+}
+
 function selectedItemClickHandler(e) {
 	e.currentTarget.remove();
     var index = window.selectedItems.indexOf(e.currentTarget.innerHTML);
@@ -69,7 +87,7 @@ function appendButton(text, container, className, handler) {
 }
 
 function getSuggestedComps() {
-    if (!window.selectedChamps.length && !window.selectedItems.length) {
+    if (!window.selectedChamps.length && !window.selectedItems.length && !window.selectedElement) {
         return [];
     }
     
@@ -79,6 +97,10 @@ function getSuggestedComps() {
                 if (!comp.rawChamps.contains(window.selectedChamps[i]))
                     return false;
             }
+			
+			if (window.selectedElement && comp.requiredElement && comp.requiredElement !== window.selectedElement) {
+				return false;
+			}
             
             var compItems = comp.requiredItems.slice();
             for (var i = 0; i < window.selectedItems.length; i++) {
@@ -95,16 +117,18 @@ function getSuggestedComps() {
 
 function appendComp(comp) {
 	var paragraph = document.createElement('p');
-	var compHtml = '<b>' + comp.name + '</b>&nbsp;';
+	var compHtml = '<b>' + comp.name + '</b> ||&nbsp;';
 	for (var i = 0; i < comp.champs.length; i++) {
 		if (comp.champs[i].onlyEarly) {
 			compHtml += '<del>' + comp.champs[i].name + '</del>  ';
+		} else if (comp.champs[i].threeStar) {
+			compHtml += '<b>' + comp.champs[i].name + '*</b>  ';
 		} else {
 			compHtml += comp.champs[i].name + '  ';
 		}
 	}
 	
-	compHtml += '<br/><b>Itemize</b>&nbsp;';
+	compHtml += '<br/><b>Itemize</b> || &nbsp;';
 	var itemizedChamps = comp.champs.filter(_ => _.items.length > 0);
 	for (var i = 0; i < itemizedChamps.length; i++) {
 		var champ = itemizedChamps[i];
@@ -122,21 +146,30 @@ function appendComp(comp) {
 		sortedItems.push(compItems[i] + ' x' + (lastIndex - i));
 		i = lastIndex;
 	}	
-	compHtml += '<br/><b>Missing Items</b>&nbsp;';
+	compHtml += '<br/><b>Missing Items</b> ||&nbsp;';
 	compHtml += sortedItems.join(', ');
 	
 	paragraph.innerHTML = compHtml;
 	paragraph.className = 'col-12';
+	paragraph.title = comp.notes;
 	document.getElementById('suggested-comps').appendChild(paragraph);
 }
 
 function updateSuggestedComps() {
     var suggestedComps = getSuggestedComps();
+	var allChamps = [];
     
     document.getElementById('suggested-comps').innerHTML = '';
     for (var i = 0; i < suggestedComps.length; i++) {
 		appendComp(suggestedComps[i]);
+		allChamps = allChamps.concat(suggestedComps[i].rawChamps);
     }
+	
+	allChamps = allChamps.unique();
+	$('#champions-wrapper button').prop('disabled', true);
+	for (var i = 0; i < allChamps.length; i++) {
+		$('#champions-wrapper').find("button:contains('" + allChamps[i] + "')").prop('disabled', false);
+	}
 }
 
 Array.prototype.contains = function(v) {
