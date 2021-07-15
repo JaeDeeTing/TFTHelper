@@ -98,7 +98,7 @@ function getSuggestedComps() {
                     return false;
             }
 			
-			if (window.selectedElement && comp.requiredElement && comp.requiredElement !== window.selectedElement) {
+			if (window.selectedElement && comp.requiredElement !== window.selectedElement) {
 				return false;
 			}
             
@@ -117,7 +117,7 @@ function getSuggestedComps() {
 
 function appendComp(comp) {
 	var paragraph = document.createElement('p');
-	var compHtml = '<b>' + comp.name + '</b> ||&nbsp;';
+	var compHtml = '<b>' + comp.name + '</b> || *' + comp.requiredElement + '* ||&nbsp;';
 	for (var i = 0; i < comp.champs.length; i++) {
 		if (comp.champs[i].onlyEarly) {
 			compHtml += '<del>' + comp.champs[i].name + '</del>  ';
@@ -143,7 +143,12 @@ function appendComp(comp) {
 	for (var i = 0; i < compItems.length;) {
 		var currentItem = compItems[i];
 		var lastIndex = compItems.lastIndexOf(currentItem) + 1;
-		sortedItems.push(compItems[i] + ' x' + (lastIndex - i));
+		var formattedItem = compItems[i] + ' x' + (lastIndex - i);
+		if (currentItem == 'Spatula') {
+			sortedItems.push('<em>' + formattedItem + '</em>');
+		} else {
+			sortedItems.push(compItems[i] + ' x' + (lastIndex - i));
+		}
 		i = lastIndex;
 	}	
 	compHtml += '<br/><b>Missing Items</b> ||&nbsp;';
