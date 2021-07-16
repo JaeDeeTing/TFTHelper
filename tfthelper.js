@@ -7,22 +7,18 @@ function init() {
 		appendButton(window.baseItems[i], 'base-items', 'col-6', itemClickHandler);
 	}
 	
-	for (var i = 0; i < window.specialElements.length; i++) {
-		appendButton(window.specialElements[i], 'special-elements', 'col-2', specialElementClickHandler);
-	}
-	
+	initSeasonFeatures();
     resetChoices();
 }
 
 function resetChoices() {
     window.selectedChamps = [];
     window.selectedItems = [];
-	window.selectedElement = null;
     document.getElementById('selected-champions').innerHTML = '';
     document.getElementById('selected-items').innerHTML = '';
     document.getElementById('suggested-comps').innerHTML = '';
-	$('#special-elements button').removeClass('selected');
 	$('#champions-wrapper button').prop('disabled', true);
+	resetSeasonFeatures();
 }
 
 function appendChampions(cost) {
@@ -60,17 +56,6 @@ function selectedChampClickHandler(e) {
     updateSuggestedComps();
 }
 
-function specialElementClickHandler(e) {
-	$('#special-elements button').removeClass('selected');
-	if (e.currentTarget.innerHTML !== window.selectedElement) {
-		$(e.currentTarget).addClass('selected');
-		window.selectedElement = e.currentTarget.innerHTML;
-	} else {
-		window.selectedElement = null;
-	}
-	updateSuggestedComps();
-}
-
 function selectedItemClickHandler(e) {
 	e.currentTarget.remove();
     var index = window.selectedItems.indexOf(e.currentTarget.innerHTML);
@@ -86,38 +71,9 @@ function appendButton(text, container, className, handler) {
 	document.getElementById(container).appendChild(button);
 }
 
-function getSuggestedComps() {
-    if (!window.selectedChamps.length && !window.selectedItems.length && !window.selectedElement) {
-        return [];
-    }
-    
-    var suggestedComps = window.teamComps
-        .filter(comp => {
-            for (var i = 0; i < window.selectedChamps.length; i++) {
-                if (!comp.rawChamps.contains(window.selectedChamps[i]))
-                    return false;
-            }
-			
-			if (window.selectedElement && comp.requiredElement !== window.selectedElement) {
-				return false;
-			}
-            
-            var compItems = comp.requiredItems.slice();
-            for (var i = 0; i < window.selectedItems.length; i++) {
-                if (compItems.contains(window.selectedItems[i]))
-                    compItems.splice(compItems.indexOf(window.selectedItems[i]), 1)
-                else
-                    return false;
-            }
-            return true;
-        });
-   
-    return suggestedComps;
-}
-
 function appendComp(comp) {
 	var paragraph = document.createElement('p');
-	var compHtml = '<b>' + comp.name + '</b> || *' + comp.requiredElement + '* ||&nbsp;';
+	var compHtml = '<b>' + comp.name + '</b> ||&nbsp;';
 	for (var i = 0; i < comp.champs.length; i++) {
 		if (comp.champs[i].onlyEarly) {
 			compHtml += '<del>' + comp.champs[i].name + '</del>  ';

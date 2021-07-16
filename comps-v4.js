@@ -34,7 +34,7 @@ class EquippedChamp {
 
 window.teamComps = [];
 
-teamComps.push(new TeamComp('S: Chosen Keepers',
+teamComps.push(new TeamComp('S: Chosen Keepers | *Keeper*',
     [new EquippedChamp('Elise'),
      new EquippedChamp('Jarvan IV'),
      new EquippedChamp('Thresh'),
@@ -46,7 +46,7 @@ teamComps.push(new TeamComp('S: Chosen Keepers',
     'Kennen in front',
 	'Keeper'));
 	
-teamComps.push(new TeamComp('S: Chosen Duelists',
+teamComps.push(new TeamComp('S: Chosen Duelists | *Duelist*',
     [new EquippedChamp('Fiora', [], true),
      new EquippedChamp('Yasuo', ['Guardian Angel', 'Hand of Justice', 'Quicksilver'], true),
      new EquippedChamp('Jax', ['Sunfire Cape'], true),
@@ -59,7 +59,7 @@ teamComps.push(new TeamComp('S: Chosen Duelists',
     'Can maybe keep irelia for 9',
 	'Duelist'));
 	
-teamComps.push(new TeamComp('S: Chosen Dusks',
+teamComps.push(new TeamComp('S: Chosen Dusks | *Dusk*',
     [new EquippedChamp('Elise', [], false, true),
 	 new EquippedChamp('Pyke', [], false, true),
 	 new EquippedChamp('Zed', [], false, true),
@@ -75,7 +75,7 @@ teamComps.push(new TeamComp('S: Chosen Dusks',
     '3 cultists, 2 shades early to sustain until you can build strong dusks',
 	'Dusk'));
 	
-teamComps.push(new TeamComp('S: Chosen Hunters',
+teamComps.push(new TeamComp('S: Chosen Hunters | *Hunter*',
     [new EquippedChamp('Maokai', [], false, true),
      new EquippedChamp('Sylas', [], false, true),
      new EquippedChamp('Vi', [], false, true),
@@ -91,7 +91,7 @@ teamComps.push(new TeamComp('S: Chosen Hunters',
     'Early brawlers',
 	'Hunter'));
 	
-teamComps.push(new TeamComp('S: Chosen Warlords',
+teamComps.push(new TeamComp('S: Chosen Warlords | *Warlord*',
     [new EquippedChamp('Garen', ['Sunfire Cape', 'Gargoyle Stoneplate'], true),
      new EquippedChamp('Jinx', [], false, true),
      new EquippedChamp('Katarina', ['Guardian Angel', 'Hextech Gunblade', 'Quicksilver'], true),
@@ -105,7 +105,7 @@ teamComps.push(new TeamComp('S: Chosen Warlords',
     'Early fortune',
 	'Warlord'));
 	
-teamComps.push(new TeamComp('A: Chosen Cultists',
+teamComps.push(new TeamComp('A: Chosen Cultists | *Cultist*',
     [new EquippedChamp('Elise'),
      new EquippedChamp('Pyke'),
      new EquippedChamp('Zed', [], false, true),
@@ -119,7 +119,7 @@ teamComps.push(new TeamComp('A: Chosen Cultists',
     'Lvl 9 Janna Yuumi or Shen',
 	'Cultist'));
 	
-teamComps.push(new TeamComp('A: Enlightened Adepts',
+teamComps.push(new TeamComp('A: Enlightened Adepts | *Adept*',
     [new EquippedChamp('Garen', [], false, true),
      new EquippedChamp('Wukong', [], false, true),
      new EquippedChamp('Irelia'),
@@ -133,7 +133,7 @@ teamComps.push(new TeamComp('A: Enlightened Adepts',
     '',
 	'Adept'));
 	
-teamComps.push(new TeamComp('A: Enlightened Mages',
+teamComps.push(new TeamComp('A: Enlightened Mages | *Mage*',
     [new EquippedChamp('Nami', ["Luden's Echo", "Luden's Echo", 'Quicksilver'], true),
      new EquippedChamp('Annie', ['Gargoyle Stoneplate', 'Ionic Spark', 'Sunfire Cape'], true),
      new EquippedChamp('Janna'),
@@ -145,7 +145,7 @@ teamComps.push(new TeamComp('A: Enlightened Mages',
     'Store Fiora',
 	'Mage'));
 	
-teamComps.push(new TeamComp('A: Chosen Assassins',
+teamComps.push(new TeamComp('A: Chosen Assassins | *Assassin*',
     [new EquippedChamp('Pyke'),
      new EquippedChamp('Zed'),
      new EquippedChamp('Akali', ['Blue Buff', 'Infinity Edge', 'Rapid Firecannon'], true),
@@ -156,7 +156,7 @@ teamComps.push(new TeamComp('A: Chosen Assassins',
     'Lvl 8 Irelia/Yone',
 	'Assassin'));
 	
-teamComps.push(new TeamComp('A: Chosen Brawlers',
+teamComps.push(new TeamComp('A: Chosen Brawlers | *Brawler*',
     [new EquippedChamp('Lissandra', [], false, true),
      new EquippedChamp('Aphelios', [], false, true),
      new EquippedChamp('Sylas'),
@@ -171,7 +171,7 @@ teamComps.push(new TeamComp('A: Chosen Brawlers',
     'Early moonlights',
 	'Brawler'));
 	
-teamComps.push(new TeamComp('A: Chosen Elderwood',
+teamComps.push(new TeamComp('A: Chosen Elderwood | *Elderwood*',
     [new EquippedChamp('Twisted Fate', [], false, true),
      new EquippedChamp('Maokai'),
      new EquippedChamp('Lulu'),
@@ -185,7 +185,7 @@ teamComps.push(new TeamComp('A: Chosen Elderwood',
     'Can swap Lux for Hecarim + Veig',
 	'Elderwood'));
 	
-teamComps.push(new TeamComp('A: Chosen Sharpshooters',
+teamComps.push(new TeamComp('A: Chosen Sharpshooters | *Sharpshooter*',
     [new EquippedChamp('Garen', [], false, true),
      new EquippedChamp('Nidalee'),
      new EquippedChamp('Jinx'),
@@ -214,7 +214,7 @@ teamComps.push(new TeamComp('A: Dusk Cultists',
      new EquippedChamp('Zilean')],
     ''));
 	
-teamComps.push(new TeamComp('A: Vanguard Mystics',
+teamComps.push(new TeamComp('A: Vanguard Mystics | *Vanguard*',
     [new EquippedChamp('Garen', [], false, true),
      new EquippedChamp('Thresh'),
      new EquippedChamp('Yuumi'),
@@ -228,7 +228,7 @@ teamComps.push(new TeamComp('A: Vanguard Mystics',
     '',
 	'Vanguard'));
 	
-teamComps.push(new TeamComp('B: Chosen Keepers',
+teamComps.push(new TeamComp('B: Chosen Keepers | *Keeper*',
     [new EquippedChamp('Elise'),
      new EquippedChamp('Jarvan IV'),
      new EquippedChamp('Thresh'),
@@ -240,7 +240,7 @@ teamComps.push(new TeamComp('B: Chosen Keepers',
     'Elise swappable with vayne',
 	'Keeper'));
 	
-teamComps.push(new TeamComp('B: Adept Mystics',
+teamComps.push(new TeamComp('B: Adept Mystics | *Enlightened*',
     [new EquippedChamp('Garen', [], false, true),
      new EquippedChamp('Wukong', [], false, true),
      new EquippedChamp('Janna'),
