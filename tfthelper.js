@@ -8,7 +8,8 @@ function init() {
 	}
 	
 	initSeasonFeatures();
-    resetChoices();
+	resetChoices();
+	logBestStarterItems();
 }
 
 function resetChoices() {
@@ -19,6 +20,22 @@ function resetChoices() {
     document.getElementById('suggested-comps').innerHTML = '';
 	$('#champions-wrapper button').prop('disabled', true);
 	resetSeasonFeatures();
+}
+
+function logBestStarterItems() {
+	var allItems = [];
+	for (var i = 0; i < window.teamComps.length; i++) {
+		allItems = allItems.concat(window.teamComps[i].requiredItems);
+	}
+	
+	allItems = allItems.sort();
+	for (var i = 0; i < allItems.length;) {
+		var currentItem = allItems[i];
+		var lastIndex = allItems.lastIndexOf(currentItem) + 1;
+		var formattedItem = allItems[i] + ' x' + (lastIndex - i);
+		console.log(formattedItem);
+		i = lastIndex;
+	}
 }
 
 function appendChampions(cost) {
