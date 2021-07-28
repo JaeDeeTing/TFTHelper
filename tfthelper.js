@@ -25,7 +25,8 @@ function resetChoices() {
 function logBestStarterItems() {
 	var allItems = [];
 	for (var i = 0; i < window.teamComps.length; i++) {
-		allItems = allItems.concat(window.teamComps[i].requiredItems);
+		var compItems = window.teamComps[i].requiredItems.map(fullItem => window.combinedItems.find(item => item.name == fullItem).baseItems).flat()
+		allItems = allItems.concat(compItems);
 	}
 	
 	allItems = allItems.sort();
@@ -91,41 +92,10 @@ function appendButton(text, container, className, handler) {
 function appendComp(comp) {
 	var paragraph = document.createElement('p');
 	var compHtml = '<b>' + comp.name + '</b> ||&nbsp;';
-	for (var i = 0; i < comp.champs.length; i++) {
-		if (comp.champs[i].onlyEarly) {
-			compHtml += '<del>' + comp.champs[i].name + '</del>  ';
-		} else if (comp.champs[i].threeStar) {
-			compHtml += '<b>' + comp.champs[i].name + '*</b>  ';
-		} else {
-			compHtml += comp.champs[i].name + '  ';
-		}
-	}
+	compHtml += comp.champs.join(', ');
 	
 	compHtml += '<br/><b>Itemize</b> || &nbsp;';
-	var itemizedChamps = comp.champs.filter(_ => _.items.length > 0);
-	for (var i = 0; i < itemizedChamps.length; i++) {
-		var champ = itemizedChamps[i];
-		compHtml += champ.name + '(' + champ.items.join(', ') + ')  ';
-	}
-	
-    var compItems = comp.requiredItems.slice();
-	for (var i = 0; i < window.selectedItems.length; i++) {
-		compItems.splice(compItems.indexOf(window.selectedItems[i]), 1)
-	}
-	var sortedItems = [];
-	for (var i = 0; i < compItems.length;) {
-		var currentItem = compItems[i];
-		var lastIndex = compItems.lastIndexOf(currentItem) + 1;
-		var formattedItem = compItems[i] + ' x' + (lastIndex - i);
-		if (currentItem == 'Spatula') {
-			sortedItems.push('<em>' + formattedItem + '</em>');
-		} else {
-			sortedItems.push(compItems[i] + ' x' + (lastIndex - i));
-		}
-		i = lastIndex;
-	}	
-	compHtml += '<br/><b>Missing Items</b> ||&nbsp;';
-	compHtml += sortedItems.join(', ');
+	compHtml += comp.requiredItems.join(', ') + ' ';
 	
 	paragraph.innerHTML = compHtml;
 	paragraph.className = 'col-12';
@@ -140,7 +110,7 @@ function updateSuggestedComps() {
     document.getElementById('suggested-comps').innerHTML = '';
     for (var i = 0; i < suggestedComps.length; i++) {
 		appendComp(suggestedComps[i]);
-		allChamps = allChamps.concat(suggestedComps[i].rawChamps);
+		allChamps = allChamps.concat(suggestedComps[i].champs);
     }
 	
 	allChamps = allChamps.unique();

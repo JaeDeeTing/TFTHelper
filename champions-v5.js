@@ -5,63 +5,235 @@ class Champion {
   }
 }
 
-window.champions = [
-	new Champion('Aatrox', 1),
-	new Champion('Gragas', 1),
-	new Champion('Kalista', 1),
-	new Champion('Khazix', 1),
-	new Champion('Kled', 1),
-	new Champion('Leona', 1),
-	new Champion('Lissandra', 1),
-	new Champion('Poppy', 1),
-	new Champion('Udyr', 1),
-	new Champion('Vladimir', 1),
-	new Champion('Vayne', 1),
-	new Champion('Warwick', 1),
-	new Champion('Ziggs', 1),
-	new Champion('Brand', 2),
-	new Champion('Hecarim', 2),
-	new Champion('Kennen', 2),
-	new Champion('Leblanc', 2),
-	new Champion('Nautilus', 2),
-	new Champion('Sejuani', 2),
-	new Champion('Sett', 2),
-	new Champion('Soraka', 2),
-	new Champion('Syndra', 2),
-	new Champion('Thresh', 2),
-	new Champion('Trundle', 2),
-	new Champion('Varus', 2),
-	new Champion('Viktor', 2),
-	new Champion('Ashe', 3),
-	new Champion('Katarina', 3),
-	new Champion('Lee Sin', 3),
-	new Champion('Lulu', 3),
-	new Champion('Lux', 3),
-	new Champion('Morgana', 3),
-	new Champion('Nidalee', 3),
-	new Champion('Nocturne', 3),
-	new Champion('Nunu', 3),
-	new Champion('Pantheon', 3),
-	new Champion('Riven', 3),
-	new Champion('Yasuo', 3),
-	new Champion('Zyra', 3),
-	new Champion('Aphelios', 4),
-	new Champion('Diana', 4),
-	new Champion('Draven', 4),
-	new Champion('Ivern', 4),
-	new Champion('Jax', 4),
-	new Champion('Karma', 4),
-	new Champion('Mordekaiser', 4),
-	new Champion('Rell', 4),
-	new Champion('Ryze', 4),
-	new Champion('Taric', 4),
-	new Champion('Velkoz', 4),
-	new Champion('Darius', 5),
-	new Champion('Garen', 5),
-	new Champion('Heimerdinger', 5),
-	new Champion('Kayle', 5),
-	new Champion('Kindred', 5),
-	new Champion('Teemo', 5),
-	new Champion('Viego', 5),
-	new Champion('Volibear', 5)
-];
+exportedChamps = [
+    {
+        "name": "Olaf",
+        "cost": 1
+    },
+    {
+        "name": "Senna",
+        "cost": 1
+    },
+    {
+        "name": "Aatrox",
+        "cost": 1
+    },
+    {
+        "name": "Gragas",
+        "cost": 1
+    },
+    {
+        "name": "Kalista",
+        "cost": 1
+    },
+    {
+        "name": "Khazix",
+        "cost": 1
+    },
+    {
+        "name": "Kled",
+        "cost": 1
+    },
+    {
+        "name": "Leona",
+        "cost": 1
+    },
+    {
+        "name": "Poppy",
+        "cost": 1
+    },
+    {
+        "name": "Udyr",
+        "cost": 1
+    },
+    {
+        "name": "Vayne",
+        "cost": 1
+    },
+    {
+        "name": "Vladimir",
+        "cost": 1
+    },
+    {
+        "name": "Ziggs",
+        "cost": 1
+    },
+    {
+        "name": "Irelia",
+        "cost": 2
+    },
+    {
+        "name": "Pyke",
+        "cost": 2
+    },
+    {
+        "name": "Tristana",
+        "cost": 2
+    },
+    {
+        "name": "Brand",
+        "cost": 2
+    },
+    {
+        "name": "Hecarim",
+        "cost": 2
+    },
+    {
+        "name": "Kennen",
+        "cost": 2
+    },
+    {
+        "name": "Nautilus",
+        "cost": 2
+    },
+    {
+        "name": "Sejuani",
+        "cost": 2
+    },
+    {
+        "name": "Sett",
+        "cost": 2
+    },
+    {
+        "name": "Soraka",
+        "cost": 2
+    },
+    {
+        "name": "Syndra",
+        "cost": 2
+    },
+    {
+        "name": "Thresh",
+        "cost": 2
+    },
+    {
+        "name": "Varus",
+        "cost": 2
+    },
+    {
+        "name": "Miss Fortune",
+        "cost": 3
+    },
+    {
+        "name": "Rakan",
+        "cost": 3
+    },
+    {
+        "name": "Ashe",
+        "cost": 3
+    },
+    {
+        "name": "Lee Sin",
+        "cost": 3
+    },
+    {
+        "name": "Lulu",
+        "cost": 3
+    },
+    {
+        "name": "Lux",
+        "cost": 3
+    },
+    {
+        "name": "Nidalee",
+        "cost": 3
+    },
+    {
+        "name": "Nocturne",
+        "cost": 3
+    },
+    {
+        "name": "Nunu",
+        "cost": 3
+    },
+    {
+        "name": "Riven",
+        "cost": 3
+    },
+    {
+        "name": "Yasuo",
+        "cost": 3
+    },
+    {
+        "name": "Zyra",
+        "cost": 3
+    },
+    {
+        "name": "Fiddlesticks",
+        "cost": 4
+    },
+    {
+        "name": "Galio",
+        "cost": 4
+    },
+    {
+        "name": "Lucian",
+        "cost": 4
+    },
+    {
+        "name": "Diana",
+        "cost": 4
+    },
+    {
+        "name": "Aphelios",
+        "cost": 4
+    },
+    {
+        "name": "Draven",
+        "cost": 4
+    },
+    {
+        "name": "Ivern",
+        "cost": 4
+    },
+    {
+        "name": "Jax",
+        "cost": 4
+    },
+    {
+        "name": "Karma",
+        "cost": 4
+    },
+    {
+        "name": "Rell",
+        "cost": 4
+    },
+    {
+        "name": "Velkoz",
+        "cost": 4
+    },
+    {
+        "name": "Akshan",
+        "cost": 5
+    },
+    {
+        "name": "Gwen",
+        "cost": 5
+    },
+    {
+        "name": "Garen",
+        "cost": 5
+    },
+    {
+        "name": "Kayle",
+        "cost": 5
+    },
+    {
+        "name": "Heimerdinger",
+        "cost": 5
+    },
+    {
+        "name": "Teemo",
+        "cost": 5
+    },
+    {
+        "name": "Viego",
+        "cost": 5
+    },
+    {
+        "name": "Volibear",
+        "cost": 5
+    }
+]
+
+window.champions = exportedChamps.map(champ => new Champion(champ.name, champ.cost));

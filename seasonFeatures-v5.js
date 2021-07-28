@@ -1,14 +1,14 @@
 function initSeasonFeatures() {
-	$('#seasonFeaturesTitle').text('Shadow Items');
+	// $('#seasonFeaturesTitle').text('Shadow Items');
 	
-	for (var i = 0; i < window.baseItems.length; i++) {
-		appendButton(window.baseItems[i], 'season-features', 'col-2', shadowItemClickHandler);
-	}
+	// for (var i = 0; i < window.baseItems.length; i++) {
+	// 	appendButton(window.baseItems[i], 'season-features', 'col-2', shadowItemClickHandler);
+	// }
 }
 
 function resetSeasonFeatures() {
-	window.selectedElement = null;
-	$('#season-features button').removeClass('selected');
+	// window.selectedElement = null;
+	// $('#season-features button').removeClass('selected');
 }
 
 function shadowItemClickHandler(e) {
@@ -23,28 +23,28 @@ function shadowItemClickHandler(e) {
 }
 
 function getSuggestedComps() {
-    if (!window.selectedChamps.length && !window.selectedItems.length && !window.selectedElement) {
+    if (!window.selectedChamps.length && !window.selectedItems.length) {
         return [];
     }
     
     var suggestedComps = window.teamComps
         .filter(comp => {
             for (var i = 0; i < window.selectedChamps.length; i++) {
-                if (!comp.rawChamps.contains(window.selectedChamps[i]))
+                if (!comp.champs.contains(window.selectedChamps[i]))
                     return false;
             }
-			
-			// if (window.selectedElement && comp.requiredElement !== window.selectedElement) {
-				// return false;
-			// }
-            
-            var compItems = comp.requiredItems.slice();
+
+            let firstItem = window.combinedItems.find(item => item.name == comp.requiredItems[0]);
+            if (!window.selectedItems.some(selectedItem => firstItem.baseItems.includes(selectedItem))) {
+                return false;
+            }
+
             for (var i = 0; i < window.selectedItems.length; i++) {
-                if (compItems.contains(window.selectedItems[i]))
-                    compItems.splice(compItems.indexOf(window.selectedItems[i]), 1)
-                else
+                var compItems = comp.requiredItems.map(fullItem => window.combinedItems.find(item => item.name == fullItem).baseItems).flat()
+                if (!compItems.contains(window.selectedItems[i]))
                     return false;
             }
+
             return true;
         });
    
