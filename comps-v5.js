@@ -8,218 +8,112 @@ class TeamComp {
 
 let exportedComps = [
     {
-        "name": "S: Revenant Mystics",
-        "rawChamps": [
-            "Aatrox",
-            "Leona",
-            "Syndra",
-            "Thresh",
-            "Riven"
-        ],
-        "fullItems": [
-            "Archangel's Staff",
-            "Spear of Shojin"
-        ]
-    },
-    {
-        "name": "S: Knight Skirmishers",
-        "rawChamps": [
-            "Olaf",
-            "Senna",
-            "Irelia",
-            "Tristana",
-            "Lee Sin"
-        ],
-        "fullItems": [
-            "Bloodthirster",
-            "Runaan's Hurricane"
-        ]
-    },
-    {
-        "name": "S: Forgotten Ironclad",
-        "rawChamps": [
-            "Vayne",
-            "Hecarim",
-            "Nautilus",
-            "Thresh",
-            "Varus"
-        ],
-        "fullItems": [
-            "Spear of Shojin",
-            "Jeweled Gauntlet"
-        ]
-    },
-    {
-        "name": "S: Nightbringer Skirmishers",
-        "rawChamps": [
-            "Vladimir",
-            "Kalista",
-            "Sejuani",
-            "Lee Sin",
-            "Yasuo"
-        ],
-        "fullItems": [
-            "Rapid Firecannon",
-            "Runaan's Hurricane",
-            "Jeweled Gauntlet"
-        ]
-    },
-    {
-        "name": "S: Abomination Revenants",
-        "rawChamps": [
-            "Kalista",
-            "Brand",
-            "Sett",
-            "Nunu",
-            "Zyra"
-        ],
-        "fullItems": [
-            "Archangel's Staff",
-            "Spear of Shojin"
-        ]
-    },
-    {
-        "name": "S: Redeemed Ironclad",
-        "rawChamps": [
-            "Leona",
-            "Vayne",
-            "Nautilus",
-            "Varus",
-            "Lux"
-        ],
-        "fullItems": [
-            "Jeweled Gauntlet",
-            "Spear of Shojin"
-        ]
-    },
-    {
-        "name": "S: Revenant Assassins",
-        "rawChamps": [
-            "Olaf",
-            "Irelia",
+        "name": "Khazix",
+        "champs": [
+            "Khazix",
+            "Gragas",
             "Pyke",
-            "Lee Sin",
-            "Nocturne"
+            "Soraka",
+            "Nidalee"
         ],
         "fullItems": [
-            "Runaan's Hurricane",
+            "Hand of Justice",
+            "Guardian Angel",
             "Infinity Edge"
         ]
     },
     {
-        "name": "S: Sentinel Cannoneers",
-        "rawChamps": [
-            "Olaf",
-            "Senna",
-            "Irelia",
-            "Tristana",
-            "Lee Sin"
+        "name": "Gragas",
+        "champs": [
+            "Gragas",
+            "Khazix",
+            "Pyke",
+            "Soraka",
+            "Nidalee"
         ],
         "fullItems": [
-            "Bloodthirster",
-            "Morellonomicon"
+            "Warmog's Armor",
+            "Sunfire Cape",
+            "Gargoyle Stoneplate"
         ]
     },
     {
-        "name": "A: Dawnbringer Invokers",
-        "rawChamps": [
-            "Aatrox",
-            "Leona",
-            "Syndra",
-            "Thresh",
-            "Riven"
-        ],
-        "fullItems": [
-            "Blue Buff",
-            "Jeweled Gauntlet"
-        ]
-    },
-    {
-        "name": "A: Forgotten Cavaliers",
-        "rawChamps": [
-            "Brand",
-            "Hecarim",
-            "Sejuani",
-            "Thresh",
-            "Zyra"
-        ],
-        "fullItems": [
-            "Blue Buff",
-            "Bramble Vest",
-            "Jeweled Gauntlet"
-        ]
-    },
-    {
-        "name": "A: Revenant Invokers",
-        "rawChamps": [
-            "Aatrox",
-            "Leona",
-            "Syndra",
-            "Thresh",
-            "Riven"
-        ],
-        "fullItems": [
-            "Archangel's Staff",
-            "Spear of Shojin"
-        ]
-    },
-    {
-        "name": "A: Hellion Revenants",
-        "rawChamps": [
+        "name": "Kled",
+        "champs": [
             "Kled",
             "Poppy",
-            "Ziggs",
             "Kennen",
-            "Lulu"
+            "Ziggs",
+            "Nautilus"
         ],
         "fullItems": [
-            "Morellonomicon",
-            "Guardian Angel"
-        ]
-    },
-    {
-        "name": "A: Sentinel Skirmishers",
-        "rawChamps": [
-            "Olaf",
-            "Senna",
-            "Irelia",
-            "Tristana",
-            "Lee Sin"
-        ],
-        "fullItems": [
-            "Morellonomicon",
-            "Bloodthirster"
-        ]
-    },
-    {
-        "name": "B: Nightbringer Abominations",
-        "rawChamps": [
-            "Vladimir",
-            "Kalista",
-            "Sejuani",
-            "Lee Sin",
-            "Yasuo"
-        ],
-        "fullItems": [
-            "Rapid Firecannon",
             "Runaan's Hurricane",
-            "Last Whisper"
+            "Last Whisper",
+            "Infinity Edge"
         ]
     },
     {
-        "name": "B: Forgotten Rangers",
-        "rawChamps": [
+        "name": "Vayne > Draven",
+        "champs": [
             "Vayne",
             "Hecarim",
-            "Nautilus",
             "Thresh",
+            "Nautilus",
+            "Irelia",
             "Varus"
         ],
         "fullItems": [
-            "Jeweled Gauntlet",
+            "Bloodthirster",
+            "Guinsoo's Rageblade",
+            "Infinity Edge"
+        ]
+    },
+    {
+        "name": "Vayne",
+        "champs": [
+            "Vayne",
+            "Hecarim",
+            "Thresh",
+            "Nautilus",
+            "Varus"
+        ],
+        "fullItems": [
+            "Guinsoo's Rageblade",
+            "Runaan's Hurricane",
             "Runaan's Hurricane"
+        ]
+    },
+    {
+        "name": "Miss Fortune",
+        "champs": [
+            "Miss Fortune",
+            "Vayne",
+            "Hecarim",
+            "Thresh",
+            "Nautilus",
+            "Sejuani"
+        ],
+        "fullItems": [
+            "Jeweled Gauntlet",
+            "Spear of Shojin",
+            "Archangel's Staff"
+        ]
+    },
+    {
+        "name": "Tristana",
+        "champs": [
+            "Tristana",
+            "Poppy",
+            "Kennen",
+            "Lulu",
+            "Miss Fortune"
+        ],
+        "fullItems": [
+            "Runaan's Hurricane",
+            "Last Whisper",
+            "Bloodthirster"
         ]
     }
 ]
 
-window.teamComps = exportedComps.map(comp => new TeamComp(comp.name, comp.rawChamps, comp.fullItems));
+window.teamComps = exportedComps.map(comp => new TeamComp(comp.name, comp.champs, comp.fullItems));
