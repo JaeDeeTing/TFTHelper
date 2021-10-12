@@ -4,7 +4,7 @@ function init() {
 	appendChampions(3);
 	
 	for (var i = 0; i < window.baseItems.length; i++) {
-		appendButton(window.baseItems[i], 'base-items', 'col-6', itemClickHandler);
+		appendImageButton(window.baseItems[i].image, window.baseItems[i].name, 'base-items', 'col-2', itemClickHandler);
 	}
 	
 	initSeasonFeatures();
@@ -15,7 +15,6 @@ function init() {
 function resetChoices() {
     window.selectedChamps = [];
     window.selectedItems = [];
-    document.getElementById('selected-champions').innerHTML = '';
     document.getElementById('selected-items').innerHTML = '';
     document.getElementById('suggested-comps').innerHTML = '';
 	$('#champions-wrapper button').prop('disabled', true);
@@ -42,18 +41,17 @@ function logBestStarterItems() {
 function appendChampions(cost) {
 	var selectChamps = window.champions.filter(_ => _.cost == cost);
 	for (var i = 0; i < selectChamps.length; i++) {
-		appendButton(selectChamps[i].name, 'champions-' + cost, 'col-3', championClickHandler);
+		appendImageButton(selectChamps[i].image, selectChamps[i].name, 'champions-' + cost, 'col-2', championClickHandler);
 	}
 }
 
 function championClickHandler(e) {
-    var selected = e.currentTarget.innerHTML;
-    if (!window.selectedChamps.contains(selected)) {
-        appendButton(selected, 'selected-champions', 'col-3', selectedChampClickHandler);
+	$(e.currentTarget).toggleClass('selected');
+    var selected = e.currentTarget.getAttribute('aria-label');
+	if (!window.selectedChamps.contains(selected)) {
         window.selectedChamps.push(selected);
         updateSuggestedComps();
     } else {
-		$('#selected-champions').find("button:contains('" + selected + "')").remove();
 		var index = window.selectedChamps.indexOf(selected);
 		window.selectedChamps.splice(index, 1);
 		updateSuggestedComps();
@@ -61,14 +59,15 @@ function championClickHandler(e) {
 }
 
 function itemClickHandler(e) {
-    var selected = e.currentTarget.innerHTML;
-	appendButton(selected, 'selected-items', 'col-6', selectedItemClickHandler);
+	var selected = e.currentTarget.getAttribute('aria-label');
+	appendButton(e.currentTarget.innerHTML, 'selected-items', 'col-2', selectedItemClickHandler);
     window.selectedItems.push(selected);
     updateSuggestedComps();
 }
 
 function selectedChampClickHandler(e) {
 	e.currentTarget.remove();
+
     var index = window.selectedChamps.indexOf(e.currentTarget.innerHTML);
     window.selectedChamps.splice(index, 1);
     updateSuggestedComps();
@@ -79,6 +78,17 @@ function selectedItemClickHandler(e) {
     var index = window.selectedItems.indexOf(e.currentTarget.innerHTML);
     window.selectedItems.splice(index, 1);
     updateSuggestedComps();
+}
+
+function appendImageButton(src, alt, container, className, handler) {
+	var image = document.createElement('img');
+	image.src = src;
+	var button = document.createElement('button');
+	button.setAttribute("aria-label", alt);
+	button.appendChild(image);
+	button.className = className;
+	button.onclick = handler;
+	document.getElementById(container).appendChild(button);
 }
 
 function appendButton(text, container, className, handler) {
@@ -116,7 +126,7 @@ function updateSuggestedComps() {
 	allChamps = allChamps.unique();
 	$('#champions-wrapper button').prop('disabled', true);
 	for (var i = 0; i < allChamps.length; i++) {
-		$('#champions-wrapper').find("button:contains('" + allChamps[i] + "')").prop('disabled', false);
+		$('#champions-wrapper').find("button[aria-label='" + allChamps[i] + "']").prop('disabled', false);
 	}
 }
 

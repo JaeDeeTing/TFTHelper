@@ -1,25 +1,10 @@
 function initSeasonFeatures() {
-	// $('#seasonFeaturesTitle').text('Shadow Items');
-	
-	// for (var i = 0; i < window.baseItems.length; i++) {
-	// 	appendButton(window.baseItems[i], 'season-features', 'col-2', shadowItemClickHandler);
-	// }
 }
 
 function resetSeasonFeatures() {
-	// window.selectedElement = null;
-	// $('#season-features button').removeClass('selected');
 }
 
 function shadowItemClickHandler(e) {
-	// $('#special-elements button').removeClass('selected');
-	// if (e.currentTarget.innerHTML !== window.selectedElement) {
-		// $(e.currentTarget).addClass('selected');
-		// window.selectedElement = e.currentTarget.innerHTML;
-	// } else {
-		// window.selectedElement = null;
-	// }
-	// updateSuggestedComps();
 }
 
 function getSuggestedComps() {

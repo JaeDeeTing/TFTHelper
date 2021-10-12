@@ -6,10 +6,14 @@
 				margin-bottom: 1.5em;
 			}
 			
+			@media(min-width: 768px) {
+				.container {
+					max-width: 720px;
+				}
+			}
+			
 			.selected {
-				font-weight: bold;
-				background: #444;
-				color: white;
+				background: green;
 			}
 			
 			.border-top {
@@ -18,6 +22,14 @@
 			
 			#suggested-comps > p > em {
 				text-decoration: underline;
+			}
+
+			button > img {
+				width: 100%
+			}
+
+			button:disabled > img {
+				opacity: 0.3;
 			}
 		</style>
 	</head>
@@ -30,7 +42,6 @@
 		<script src="./seasonFeatures-v5.js"></script>
 		<script src="./comps-v5.js"></script>
 		<script src="./tfthelper.js"></script>
-		
 		<div class="container">
 			<div>Menu</div>
 			<div class="row options">
@@ -57,10 +68,6 @@
 		<div class="container border-top">
 			<div>Selected Items</div>
 			<div class="row options" id="selected-items"></div>
-		</div>
-		<div class="container">
-			<div>Selected Champions</div>
-			<div class="row options" id="selected-champions"></div>
 		</div>
         <div class="container border-top">
             <div>Suggested Comp(s)</div>

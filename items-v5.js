@@ -1,20 +1,27 @@
+class Item {
+	constructor(name, image) {
+		this.name = name;
+		this.image = image;
+    }
+}
+
 window.baseItems = [
-	"BF Sword",
-	"Chain Vest",
-	"Giant's Belt",
-	"Needlessly Large Rod",
-	"Negatron Cloak",
-	"Recurve Bow",
-	"Sparring Gloves",
-	"Tear of the Goddess",
-	"Spatula"
+	new Item("BF Sword", "https://rerollcdn.com/items/BFSword.png"),
+	new Item("Chain Vest", "https://rerollcdn.com/items/ChainVest.png"),
+	new Item("Giant's Belt", "https://rerollcdn.com/items/GiantsBelt.png"),
+	new Item("Needlessly Large Rod", "https://rerollcdn.com/items/NeedlesslyLargeRod.png"),
+	new Item("Negatron Cloak", "https://rerollcdn.com/items/NegatronCloak.png"),
+	new Item("Recurve Bow", "https://rerollcdn.com/items/RecurveBow.png"),
+	new Item("Sparring Gloves", "https://rerollcdn.com/items/SparringGloves.png"),
+	new Item("Tear of the Goddess", "https://rerollcdn.com/items/TearoftheGoddess.png"),
+	new Item("Spatula", "https://rerollcdn.com/items/Spatula.png")
 ]
 
-class CombinedItem {
-  constructor(name, baseItem1, baseItem2) {
-    this.name = name;
-    this.baseItems = [baseItem1, baseItem2];
-  }
+class CombinedItem extends Item {
+	constructor(name, baseItem1, baseItem2, image) {
+		super(name, image);
+		this.baseItems = [baseItem1, baseItem2];
+	}
 }
 
 window.combinedItems = [
