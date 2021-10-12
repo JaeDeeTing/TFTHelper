@@ -34,7 +34,7 @@ function getSuggestedComps() {
                     return false;
             }
 
-            let firstItem = window.combinedItems.find(item => item.name == comp.requiredItems[0]);
+            let firstItem = window.combinedItems.find(item => item.name == comp.requiredItems[0]);			
             if (!window.selectedItems.some(selectedItem => firstItem.baseItems.includes(selectedItem))) {
                 return false;
             }
