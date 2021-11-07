@@ -17,7 +17,10 @@ function resetChoices() {
     window.selectedItems = [];
     document.getElementById('selected-items').innerHTML = '';
     document.getElementById('suggested-comps').innerHTML = '';
-	$('#champions-wrapper button').prop('disabled', true);
+	$('#champions-wrapper button')
+		.prop('disabled', true)
+		.removeClass('selected')
+		.removeClass('priority');
 	resetSeasonFeatures();
 }
 
@@ -60,22 +63,16 @@ function championClickHandler(e) {
 
 function itemClickHandler(e) {
 	var selected = e.currentTarget.getAttribute('aria-label');
-	appendButton(e.currentTarget.innerHTML, 'selected-items', 'col-2', selectedItemClickHandler);
+	var image = e.currentTarget.getElementsByTagName('img')[0].getAttribute('src');
+	appendImageButton(image, selected, 'selected-items', 'col-2', selectedItemClickHandler);
     window.selectedItems.push(selected);
-    updateSuggestedComps();
-}
-
-function selectedChampClickHandler(e) {
-	e.currentTarget.remove();
-
-    var index = window.selectedChamps.indexOf(e.currentTarget.innerHTML);
-    window.selectedChamps.splice(index, 1);
     updateSuggestedComps();
 }
 
 function selectedItemClickHandler(e) {
 	e.currentTarget.remove();
-    var index = window.selectedItems.indexOf(e.currentTarget.innerHTML);
+	var selected = e.currentTarget.getAttribute('aria-label');
+	var index = window.selectedItems.indexOf(selected);
     window.selectedItems.splice(index, 1);
     updateSuggestedComps();
 }
@@ -86,14 +83,6 @@ function appendImageButton(src, alt, container, className, handler) {
 	var button = document.createElement('button');
 	button.setAttribute("aria-label", alt);
 	button.appendChild(image);
-	button.className = className;
-	button.onclick = handler;
-	document.getElementById(container).appendChild(button);
-}
-
-function appendButton(text, container, className, handler) {
-	var button = document.createElement('button');
-	button.innerHTML = text;
 	button.className = className;
 	button.onclick = handler;
 	document.getElementById(container).appendChild(button);
@@ -116,17 +105,31 @@ function appendComp(comp) {
 function updateSuggestedComps() {
     var suggestedComps = getSuggestedComps();
 	var allChamps = [];
+	var priorityChamps = [];
     
     document.getElementById('suggested-comps').innerHTML = '';
     for (var i = 0; i < suggestedComps.length; i++) {
 		appendComp(suggestedComps[i]);
 		allChamps = allChamps.concat(suggestedComps[i].champs);
+		priorityChamps.push(suggestedComps[i].champs[0]);
     }
 	
 	allChamps = allChamps.unique();
 	$('#champions-wrapper button').prop('disabled', true);
 	for (var i = 0; i < allChamps.length; i++) {
 		$('#champions-wrapper').find("button[aria-label='" + allChamps[i] + "']").prop('disabled', false);
+	}
+
+	selectedChamps = selectedChamps.filter(champ => allChamps.includes(champ));
+	$('#champions-wrapper button').removeClass('selected');
+	for (var i = 0; i < selectedChamps.length; i++) {
+		$('#champions-wrapper').find("button[aria-label='" + selectedChamps[i] + "']").addClass('selected');
+	}
+
+	priorityChamps = priorityChamps.unique();
+	$('#champions-wrapper button').removeClass('priority');
+	for (var i = 0; i < priorityChamps.length; i++) {
+		$('#champions-wrapper').find("button[aria-label='" + priorityChamps[i] + "']").addClass('priority');
 	}
 }
 
