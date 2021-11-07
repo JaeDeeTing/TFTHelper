@@ -1,3 +1,9 @@
+const currentSet = 6;
+loadScript("champions");
+loadScript("items");
+loadScript("seasonFeatures");
+loadScript("comps");
+
 function init() {
 	appendChampions(1);
 	appendChampions(2);
@@ -131,6 +137,12 @@ function updateSuggestedComps() {
 	for (var i = 0; i < priorityChamps.length; i++) {
 		$('#champions-wrapper').find("button[aria-label='" + priorityChamps[i] + "']").addClass('priority');
 	}
+}
+
+function loadScript(name) {
+	var script = document.createElement('script');
+	script.src = `./sets/${currentSet}/${name}.js`;
+	document.head.appendChild(script);
 }
 
 Array.prototype.contains = function(v) {
