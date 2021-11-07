@@ -125,6 +125,66 @@ let exportedComps = [
             "Infinity Edge",
             "Rapid Firecannon"
         ]
+    },
+    {
+        "name": "Malzahar",
+        "champs": [
+            "Malzahar",
+            "Kassadin",
+            "KogMaw",
+            "Chogath",
+            "Zac"
+        ],
+        "fullItems": [
+            "Jeweled Gauntlet",
+            "Blue Buff",
+            "Hextech Gunblade"
+        ]
+    },
+    {
+        "name": "Ezreal > Sion",
+        "champs": [
+            "Ezreal",
+            "Garen",
+            "Kassadin",
+            "Blitzcrank",
+            "Leona"
+        ],
+        "fullItems": [
+            "Jeweled Gauntlet",
+            "Infinity Edge",
+            "Hand of Justice"
+        ]
+    },
+    {
+        "name": "Gangplank",
+        "champs": [
+            "Gangplank",
+            "Illaoi",
+            "KogMaw",
+            "Vi",
+            "Miss Fortune"
+        ],
+        "fullItems": [
+            "Bloodthirster",
+            "Infinity Edge",
+            "Rapid Firecannon"
+        ]
+    },
+    {
+        "name": "KogMaw > Kaisa",
+        "champs": [
+            "KogMaw",
+            "Kassadin",
+            "Blitzcrank",
+            "Illaoi",
+            "Chogath"
+        ],
+        "fullItems": [
+            "Hand of Justice",
+            "Guinsoo's Rageblade",
+            "Giant Slayer"
+        ]
     }
 ]
 
