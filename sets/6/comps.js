@@ -8,22 +8,7 @@ class TeamComp {
 
 let exportedComps = [
     {
-        "name": "Ezreal > Jinx",
-        "champs": [
-            "Ezreal",
-            "Ziggs",
-            "Blitzcrank",
-            "Trundle",
-            "Vi"
-        ],
-        "fullItems": [
-            "Hand of Justice",
-            "Guinsoo's Rageblade",
-            "Giant Slayer"
-        ]
-    },
-    {
-        "name": "Twisted Fate > Lux",
+        "name": "Twisted Fate > Lux (Arcanists)",
         "champs": [
             "Twisted Fate",
             "Darius",
@@ -38,7 +23,7 @@ let exportedComps = [
         ]
     },
     {
-        "name": "Twitch > Urgot",
+        "name": "Twitch > Urgot (Chemtech Twinshots)",
         "champs": [
             "Twitch",
             "Singed",
@@ -53,7 +38,7 @@ let exportedComps = [
         ]
     },
     {
-        "name": "Tristana",
+        "name": "Tristana (Yordles)",
         "champs": [
             "Tristana",
             "Ziggs",
@@ -68,22 +53,7 @@ let exportedComps = [
         ]
     },
     {
-        "name": "Twisted Fate > Yone",
-        "champs": [
-            "Twisted Fate",
-            "Garen",
-            "Ziggs",
-            "Blitzcrank",
-            "Leona"
-        ],
-        "fullItems": [
-            "Guinsoo's Rageblade",
-            "Bloodthirster",
-            "Infinity Edge"
-        ]
-    },
-    {
-        "name": "Quinn > Fiora",
+        "name": "Quinn > Fiora (Enchanter Challengers)",
         "champs": [
             "Quinn",
             "Camille",
@@ -92,33 +62,21 @@ let exportedComps = [
             "Samira",
         ],
         "fullItems": [
-            "Hand of Justice",
             "Infinity Edge",
-            "Jeweled Gauntlet"
+            "Jeweled Gauntlet",
+            "Hand of Justice"
         ]
     },
     {
-        "name": "Warwick > Jayce",
-        "champs": [
-            "Warwick",
-            "Singed",
-            "Zilean",
-            "Heimerdinger",
-            "Lissandra"
-        ],
-        "fullItems": [
-            "Titan's Resolve",
-            "Spear of Shojin"
-        ]
-    },
-    {
-        "name": "Shaco",
+        "name": "Shaco (Syndicate Assassins)",
         "champs": [
             "Shaco",
             "Darius",
-            "Katarina",
             "Zyra",
-            "Leona"
+            "Katarina",
+            "Leona",
+            "Twitch",
+            "Ekko"
         ],
         "fullItems": [
             "Bloodthirster",
@@ -127,7 +85,7 @@ let exportedComps = [
         ]
     },
     {
-        "name": "Malzahar",
+        "name": "Malzahar (Chemtech Mutants)",
         "champs": [
             "Malzahar",
             "Kassadin",
@@ -142,7 +100,22 @@ let exportedComps = [
         ]
     },
     {
-        "name": "Ezreal > Sion",
+        "name": "Ezreal > Orianna (Innovators)",
+        "champs": [
+            "Ezreal",
+            "Singed",
+            "Warwick",
+            "Heimerdinger",
+            "Lissandra"
+        ],
+        "fullItems": [
+            "Spear of Shojin",
+            "Jeweled Gauntlet",
+            "Archangel's Staff"
+        ]
+    },
+    {
+        "name": "Ezreal > Sion (Imperial Colossus)",
         "champs": [
             "Ezreal",
             "Garen",
@@ -157,7 +130,7 @@ let exportedComps = [
         ]
     },
     {
-        "name": "Gangplank",
+        "name": "Gangplank (Twinshot Mercenaries)",
         "champs": [
             "Gangplank",
             "Illaoi",
@@ -184,6 +157,36 @@ let exportedComps = [
             "Hand of Justice",
             "Guinsoo's Rageblade",
             "Giant Slayer"
+        ]
+    },
+    {
+        "name": "KogMaw > Yone (Academy)",
+        "champs": [
+            "KogMaw",
+            "Garen",
+            "Graves",
+            "Katarina",
+            "Leona"
+        ],
+        "fullItems": [
+            "Guardian Angel",
+            "Guinsoo's Rageblade",
+            "Runaan's Hurricane"
+        ]
+    },
+    {
+        "name": "Twitch > Yone (Academy)",
+        "champs": [
+            "Twitch",
+            "Garen",
+            "Graves",
+            "Katarina",
+            "Leona"
+        ],
+        "fullItems": [
+            "Guardian Angel",
+            "Guinsoo's Rageblade",
+            "Runaan's Hurricane"
         ]
     }
 ]
