@@ -38,7 +38,7 @@ for (let i = 0; i < comps.length; i++) {
 
     exportedComps.push({
         name: rank + ": " + name,
-        rawChamps: champNames,
+        champs: champNames,
         fullItems: itemNames
     })
 }

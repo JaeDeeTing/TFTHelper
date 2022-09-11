@@ -1,4 +1,4 @@
-const currentSet = 6;
+const currentSet = 7.5;
 loadScript("champions");
 loadScript("items");
 loadScript("seasonFeatures");
@@ -97,6 +97,7 @@ function appendImageButton(src, alt, container, className, handler) {
 function appendComp(comp) {
 	var paragraph = document.createElement('p');
 	var compHtml = '<b>' + comp.name + '</b> ||&nbsp;';
+	console.log(comp)
 	compHtml += comp.champs.join(', ');
 	
 	compHtml += '<br/><b>Itemize</b> || &nbsp;';
