@@ -8,35 +8,51 @@ class TeamComp {
 
 let exportedComps = [
     {
-        "name": "S: Scalescorn Assassins",
+        "name": "Yone > Daeja (Mirage Guild/Cavaliers)",
         "champs": [
-            "Qiyana",
-            "Jax",
-            "Diana",
-            "Lee Sin",
-            "Olaf"
-        ],
-        "fullItems": [
-            "Bloodthirster",
-            "Giant Slayer"
-        ]
-    },
-    {
-        "name": "S: Mirage Cavaliers",
-        "champs": [
-            "Lillia",
-            "Rell",
             "Yone",
+            "Lillia",
             "Nunu",
+            "Rell",
             "Olaf"
         ],
         "fullItems": [
             "Guinsoo's Rageblade",
-            "Giant Slayer"
+            "Giant Slayer",
+            "Hextech Gunblade"
         ]
     },
     {
-        "name": "S: Ragewing Guild",
+        "name": "Lux > Nomsy (Astral Mages)",
+        "champs": [
+            "Lux",
+            "Skarner",
+            "Vladimir",
+            "Zyra",
+            "Sylas"
+        ],
+        "fullItems": [
+            "Spear of Shojin",
+            "Archangel's Staff",
+            "Hextech Gunblade"
+        ]
+    },
+    {
+        "name": "Taliyah > Sohm (Lagoon Mages)",
+        "champs": [
+            "Taliyah",
+            "Malphite",
+            "Kaisa",
+            "Sylas",
+            "Lux"
+        ],
+        "fullItems": [
+            "Blue Buff",
+            "Jeweled Gauntlet"
+        ]
+    },
+    {
+        "name": "Ezreal > Xayah (Ragewings)",
         "champs": [
             "Ezreal",
             "Braum",
@@ -46,39 +62,42 @@ let exportedComps = [
         ],
         "fullItems": [
             "Guinsoo's Rageblade",
-            "Giant Slayer"
-        ]
-    },
-    {
-        "name": "S: Tempest Dragonmancer",
-        "champs": [
-            "Sett",
-            "Kaisa",
-            "Qiyana",
-            "Lee Sin",
-            "Volibear"
-        ],
-        "fullItems": [
-            "Jeweled Gauntlet",
+            "Giant Slayer",
             "Infinity Edge"
         ]
     },
     {
-        "name": "S: Scalescorn Warriors",
+        "name": "Ezreal > Ao Shin (Tempest)",
         "champs": [
+            "Ezreal",
+            "Braum",
             "Qiyana",
-            "Jax",
             "Diana",
-            "Lee Sin",
-            "Olaf"
+            "Rakan"
         ],
         "fullItems": [
-            "Bloodthirster",
-            "Giant Slayer"
+            "Spear of Shojin",
+            "Archangel's Staff",
+            "Hextech Gunblade"
         ]
     },
     {
-        "name": "A: Darkflights",
+        "name": "Darkflight Cannoneers",
+        "champs": [
+            "Senna",
+            "Sejuani",
+            "Aphelios",
+            "Rell",
+            "Rakan"
+        ],
+        "fullItems": [
+            "Zeke's Herald",
+            "Last Whisper",
+            "Guinsoo's Rageblade"
+        ]
+    },
+    {
+        "name": "Ezreal > Swain",
         "champs": [
             "Ezreal",
             "Sejuani",
@@ -88,105 +107,68 @@ let exportedComps = [
         ],
         "fullItems": [
             "Protector's Vow",
-            "Morellonomicon"
+            "Morellonomicon",
+            "Titan's Resolve"
         ]
     },
     {
-        "name": "A: Lagoon Mages",
+        "name": "Lagoon Cannoneers",
         "champs": [
-            "Malphite",
-            "Taliyah",
-            "Kaisa",
-            "Lux",
-            "Sylas"
-        ],
-        "fullItems": [
-            "Blue Buff",
-            "Jeweled Gauntlet"
-        ]
-    },
-    {
-        "name": "B: Prodigy Cannoneers",
-        "champs": [
-            "Senna",
-            "Zac",
-            "Rakan",
             "Seraphine",
+            "Zac",
+            "Zyra",
+            "Rakan",
             "Zeri"
         ],
         "fullItems": [
-            "Guinsoo's Rageblade",
-            "Spear of Shojin"
+            "Morellonomicon",
+            "Spear of Shojin",
+            "Rabadon's Deathcap"
         ]
     },
     {
-        "name": "B: Astral Mages",
+        "name": "Scalescorn Assassins/Warriors",
         "champs": [
-            "Skarner",
-            "Vladimir",
-            "Lux",
-            "Zyra",
-            "Sylas"
+            "Olaf",
+            "Jax",
+            "Diana",
+            "Qiyana",
+            "Lee Sin"
         ],
         "fullItems": [
-            "Spear of Shojin",
-            "Archangel's Staff"
+            "Bloodthirster",
+            "Giant Slayer",
+            "Runaan's Hurricane"
         ]
     },
     {
-        "name": "B: Astral Swiftshots",
+        "name": "Astral Swiftshots",
         "champs": [
+            "Varus",
             "Skarner",
             "Lux",
             "Twitch",
-            "Sylas",
-            "Varus"
+            "Sylas"
         ],
         "fullItems": [
             "Guinsoo's Rageblade",
-            "Deathblade"
+            "Deathblade",
+            "Runaan's Hurricane"
         ]
     },
     {
-        "name": "B: Jade Warriors",
+        "name": "Jade Warriors",
         "champs": [
+            "Wukong",
             "Karma",
             "Jax",
-            "Wukong",
             "Diana",
             "Olaf"
         ],
         "fullItems": [
             "Rapid Firecannon",
-            "Infinity Edge"
-        ]
-    },
-    {
-        "name": "B: Prodigy Evokers",
-        "champs": [
-            "Skarner",
-            "Vladimir",
-            "Lux",
-            "Zyra",
-            "Sylas"
-        ],
-        "fullItems": [
-            "Spear of Shojin",
-            "Archangel's Staff"
-        ]
-    },
-    {
-        "name": "B: Prodigy Mages",
-        "champs": [
-            "Skarner",
-            "Vladimir",
-            "Lux",
-            "Zyra",
-            "Sylas"
-        ],
-        "fullItems": [
-            "Spear of Shojin",
-            "Archangel's Staff"
+            "Infinity Edge",
+            "Runaan's Hurricane"
         ]
     }
 ];
