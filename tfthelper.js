@@ -1,4 +1,4 @@
-const currentSet = 7.5;
+const currentSet = 8.5;
 loadScript("champions");
 loadScript("items");
 loadScript("seasonFeatures");
