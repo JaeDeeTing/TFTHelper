@@ -8,22 +8,6 @@ class TeamComp {
 
 let exportedComps = [
     {
-        "name": "Lulu > TF (Ox Force Spellslingers)",
-        "champs": [
-            "Lulu",
-            "Poppy",
-            "Annie",
-            "Fiora",
-            "Sona",
-            "Alistar"
-        ],
-        "fullItems": [
-            "Guinsoo's Rageblade",
-            "Statikk Shiv",
-            "Hextech Gunblade"
-        ]
-    },
-    {
         "name": "Gadgeteens",
         "champs": [
             "Gnar",
@@ -131,14 +115,12 @@ let exportedComps = [
             "Renekton",
             "Lee Sin",
             "Sona",
-            "Gangplank",
-            "Malphite",
-            "Alistar"
+            "Gangplank"
         ],
         "fullItems": [
-            "Spear of Shojin",
-            "Jeweled Gauntlet",
-            "Giant Slayer"
+            "Blue Buff",
+            "Hextech Gunblade",
+            "Jeweled Gauntlet"
         ]
     },
     {
@@ -159,23 +141,7 @@ let exportedComps = [
         ]
     },
     {
-        "name": "Kayle > Twisted Fate",
-        "champs": [
-            "Kayle",
-            "Annie",
-            "Fiora",
-            "Yasuo",
-            "Nilah",
-            "Vayne"
-        ],
-        "fullItems": [
-            "Guinsoo's Rageblade",
-            "Statikk Shiv",
-            "Hextech Gunblade"
-        ]
-    },
-    {
-        "name": "Yasuo > Twisted Fate",
+        "name": "Yasuo > TF (Duelists)",
         "champs": [
             "Yasuo",
             "Kayle",
@@ -198,9 +164,7 @@ let exportedComps = [
             "Annie",
             "Jinx",
             "Alistar",
-            "Pyke",
-            "Leblanc",
-            "Shen"
+            "Pyke"
         ],
         "fullItems": [
             "Bloodthirster",
@@ -216,8 +180,7 @@ let exportedComps = [
             "Lee Sin",
             "Pyke",
             "Sona",
-            "Pantheon",
-            "Riven"
+            "Pantheon"
         ],
         "fullItems": [
             "Blue Buff",
@@ -234,8 +197,7 @@ let exportedComps = [
             "Annie",
             "Fiora",
             "Pantheon",
-            "Lee Sin",
-            "Alistar"
+            "Lee Sin"
         ],
         "fullItems": [
             "Blue Buff",
@@ -269,8 +231,6 @@ let exportedComps = [
             "Lee Sin",
             "Shen",
             "Nasus",
-            "Malphite",
-            "Alistar",
             "Vex"
         ],
         "fullItems": [
@@ -289,14 +249,29 @@ let exportedComps = [
             "Shen",
             "Gangplank",
             "Pyke",
-            "Malphite",
-            "Alistar",
             "Vex"
         ],
         "fullItems": [
             "Blue Buff",
             "Jeweled Gauntlet",
             "Giant Slayer"
+        ]
+    },
+    {
+        "name": "Lux > Neeko (Star Guardian Spellslingers)",
+        "champs": [
+            "Lux",
+            "Lulu",
+            "Poppy",
+            "Rell",
+            "Annie",
+            "Nilah",
+            "Alistar"
+        ],
+        "fullItems": [
+            "Spear of Shojin",
+            "Jeweled Gauntlet",
+            "Hextech Gunblade"
         ]
     }
 ];
