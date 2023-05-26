@@ -50,7 +50,7 @@ function logBestStarterItems() {
 function appendChampions(cost) {
 	var selectChamps = window.champions.filter(_ => _.cost == cost);
 	for (var i = 0; i < selectChamps.length; i++) {
-		appendImageButton(selectChamps[i].image, selectChamps[i].name, 'champions-' + cost, 'col-2', championClickHandler);
+		appendImageButton(selectChamps[i].image, selectChamps[i].name, 'champions-' + cost, 'col-2', championClickHandler, true);
 	}
 }
 
@@ -83,12 +83,20 @@ function selectedItemClickHandler(e) {
     updateSuggestedComps();
 }
 
-function appendImageButton(src, alt, container, className, handler) {
+function appendImageButton(src, alt, container, className, handler, addName = false) {
 	var image = document.createElement('img');
 	image.src = src;
 	var button = document.createElement('button');
 	button.setAttribute("aria-label", alt);
 	button.appendChild(image);
+	
+	if (addName)
+	{
+		var name = document.createElement('span');
+		name.innerText = alt;
+		button.appendChild(name);
+	}
+
 	button.className = className;
 	button.onclick = handler;
 	document.getElementById(container).appendChild(button);

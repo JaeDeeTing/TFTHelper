@@ -2,26 +2,45 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></script>
 		<style>
+			body {
+				background-color: #202124;
+				color: #eee;
+			}
+
+			button {
+				background: #333;
+				color: #eee;
+			}
+
 			.container {
 				margin-bottom: 1.5em;
 			}
-			
-			@media(min-width: 768px) {
+
+			@media(min-width: 1440px) {
 				.container {
-					max-width: 720px;
+					max-width: 1380px;
 				}
+			}
+
+			.row {
+				margin-bottom: 1em;
+			}
+
+			h2 {
+				font-size: 1.5rem;
 			}
 
 			.priority {
 				background: yellow;
+				color: #111;
 			}
 			
 			.selected {
 				background: green;
 			}
 			
-			.border-top {
-				border-top: 2px solid;
+			.border-bottom {
+				border-bottom: 2px solid !important;
 			}
 			
 			#suggested-comps > p > em {
@@ -35,6 +54,22 @@
 			button:disabled > img {
 				opacity: 0.3;
 			}
+
+			button > span {
+				font-weight: bold;
+			}
+			
+			@media(max-width: 768px) {
+				button > span  {
+					font-size: 12px;
+				}
+			}
+			
+			@media(min-width: 992px) and (max-width: 1440px) {
+				button > span  {
+					font-size: 12px;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -43,35 +78,43 @@
 		  crossorigin="anonymous"></script>
 		<script src="./tfthelper.js"></script>
 		<div class="container">
-			<div>Menu</div>
+			<h2>Menu</h2>
 			<div class="row options">
                 <button onclick="resetChoices()">Reset</button>
 				<a style="margin-left:1em" href="https://tftactics.gg/tierlist/team-comps" target="_blank">Detailed Comps</a>
             </div>
 		</div>
 		<div class="container">
-			<div>Base Items</div>
-			<div class="row options" id="base-items"></div>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="container">
+						<h2>Base Items</h2>
+						<div class="row options" id="base-items"></div>
+					</div>
+					<div class="container border-bottom">
+						<h2 id="seasonFeaturesTitle"></h2>
+						<div class="row options" id="season-features"></div>
+					</div>
+					<div class="container border-bottom" id="champions-wrapper">
+						<h2>Cost 1 Champions</h2>
+						<div class="row options" id="champions-1"></div>
+						<h2>Cost 2 Champions</h2>
+						<div class="row options" id="champions-2"></div>
+						<h2>Cost 3 Champions</h2>
+						<div class="row options" id="champions-3"></div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="container border-bottom">
+						<h2>Selected Items</h2>
+						<div class="row options" id="selected-items"></div>
+					</div>
+					<div class="container">
+						<h2>Suggested Comp(s)</h2>
+						<div class="row" id="suggested-comps"></div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="container">
-			<div id="seasonFeaturesTitle"></div>
-			<div class="row options" id="season-features"></div>
-		</div>
-		<div class="container border-top" id="champions-wrapper">
-			<div>Cost 1 Champions</div>
-			<div class="row options" id="champions-1"></div>
-			<div>Cost 2 Champions</div>
-			<div class="row options" id="champions-2"></div>
-			<div>Cost 3 Champions</div>
-			<div class="row options" id="champions-3"></div>
-		</div>
-		<div class="container border-top">
-			<div>Selected Items</div>
-			<div class="row options" id="selected-items"></div>
-		</div>
-        <div class="container border-top">
-            <div>Suggested Comp(s)</div>
-			<div class="row" id="suggested-comps"></div>
-        </div>
 	</body>
 </html>
