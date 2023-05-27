@@ -81,6 +81,8 @@ function itemClickHandler(e) {
 
 function selectedItemClickHandler(e) {
 	if (window.combiningItems) {
+		if (window.combinedItems.some(i => i.name == e.currentTarget.getAttribute('aria-label')))
+			return;
 		addItemComponentToCombination(e.currentTarget);
 	} else {
 		removeSelectedItem(e.currentTarget);
