@@ -405,4 +405,4 @@ let exportedItems = [
     }
 ];
 
-window.combinedItems = exportedItems.map(item => new CombinedItem(item.name, item.component1, item.component2));
+window.combinedItems = exportedItems.map(item => new CombinedItem(item.name, item.component1, item.component2, item.image));

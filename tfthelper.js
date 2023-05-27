@@ -1,4 +1,5 @@
 const currentSet = 8.5;
+
 loadScript("champions");
 loadScript("items");
 loadScript("seasonFeatures");
@@ -20,9 +21,11 @@ function init() {
 
 function resetChoices() {
     window.selectedChamps = [];
-    window.selectedItems = [];
+	window.selectedItems = [];
     document.getElementById('selected-items').innerHTML = '';
-    document.getElementById('suggested-comps').innerHTML = '';
+	document.getElementById('suggested-comps').innerHTML = '';
+	appendCombineButton();
+	endCombiningItems();
 	$('#champions-wrapper button')
 		.prop('disabled', true)
 		.removeClass('selected')
@@ -73,14 +76,61 @@ function itemClickHandler(e) {
 	appendImageButton(image, selected, 'selected-items', 'col-2', selectedItemClickHandler);
     window.selectedItems.push(selected);
     updateSuggestedComps();
+	checkCombinableItems();
 }
 
 function selectedItemClickHandler(e) {
-	e.currentTarget.remove();
-	var selected = e.currentTarget.getAttribute('aria-label');
+	if (window.combiningItems) {
+		addItemComponentToCombination(e.currentTarget);
+	} else {
+		removeSelectedItem(e.currentTarget);
+		updateSuggestedComps();
+		checkCombinableItems();
+	}
+}
+
+function removeSelectedItem(target) {
+	target.remove();
+	var selected = target.getAttribute('aria-label');
 	var index = window.selectedItems.indexOf(selected);
-    window.selectedItems.splice(index, 1);
-    updateSuggestedComps();
+	if (index < 0) return;
+	window.selectedItems.splice(index, 1);
+}
+
+function beginCombiningItems(e) {
+	$('#base-items button').prop('disabled', true);
+	window.combiningItems = true;
+	window.comboItems = [];
+}
+
+function endCombiningItems() {
+	$('#base-items button').prop('disabled', false);
+	window.combiningItems = false;
+	window.comboItems = [];
+}
+
+function addItemComponentToCombination(target) {
+	if (!window.comboItems.length) {
+		window.comboItems.push(target);
+		return;
+	} 
+
+	var combinedItem = getCombinedItem(window.comboItems[0].getAttribute('aria-label'), target.getAttribute('aria-label'));
+	appendImageButton(combinedItem.image, combinedItem.name, 'selected-items', 'col-2', selectedItemClickHandler);
+	window.selectedItems.push(combinedItem.name);
+	removeSelectedItem(target);
+	removeSelectedItem(window.comboItems[0]);
+	endCombiningItems();
+	updateSuggestedComps();
+	checkCombinableItems();
+}
+
+function getCombinedItem(baseItem1, baseItem2) {
+	var str1 = `${baseItem1},${baseItem2}`;
+	var str2 = `${baseItem2},${baseItem1}`;
+	return window.combinedItems.find(i => 
+		i.baseItems.toString() == str1 
+		|| i.baseItems.toString() == str2);
 }
 
 function appendImageButton(src, alt, container, className, handler, addName = false) {
@@ -102,10 +152,21 @@ function appendImageButton(src, alt, container, className, handler, addName = fa
 	document.getElementById(container).appendChild(button);
 }
 
+function appendCombineButton() {
+	appendImageButton('./img/anvil.png', 'Combine Items', 'selected-items', 'col-2', beginCombiningItems);
+	checkCombinableItems();
+}
+
+function checkCombinableItems() {
+	var baseItemNames = window.baseItems.map(i => i.name);
+	var selectedBaseItems = window.selectedItems.filter(i => baseItemNames.contains(i));
+	var disableCombining = selectedBaseItems.length < 2;
+	$('#selected-items button')[0].disabled = disableCombining;
+}
+
 function appendComp(comp) {
 	var paragraph = document.createElement('p');
 	var compHtml = '<b>' + comp.name + '</b> ||&nbsp;';
-	console.log(comp)
 	compHtml += comp.champs.join(', ');
 	
 	compHtml += '<br/><b>Itemize</b> || &nbsp;';
@@ -146,6 +207,36 @@ function updateSuggestedComps() {
 	for (var i = 0; i < priorityChamps.length; i++) {
 		$('#champions-wrapper').find("button[aria-label='" + priorityChamps[i] + "']").addClass('priority');
 	}
+}
+
+function getSuggestedComps() {
+    if (!window.selectedChamps.length && !window.selectedItems.length) {
+        return [];
+    }
+    
+    var suggestedComps = window.teamComps
+        .filter(comp => {
+            for (var i = 0; i < window.selectedChamps.length; i++) {
+                if (!comp.champs.contains(window.selectedChamps[i]))
+                    return false;
+            }
+
+            let firstItem = window.combinedItems.find(item => item.name == comp.requiredItems[0]);			
+            if (!window.selectedItems.some(selectedItem => firstItem.name == selectedItem || firstItem.baseItems.includes(selectedItem))) {
+                return false;
+            }
+
+            for (var i = 0; i < window.selectedItems.length; i++) {
+				var selectedItem = window.selectedItems[i];
+                var compItems = comp.requiredItems.map(fullItem => window.combinedItems.find(item => item.name == fullItem).baseItems).flat()
+                if (!(compItems.contains(selectedItem) || comp.requiredItems.includes(selectedItem)))
+                    return false;
+            }
+
+            return true;
+        });
+   
+    return suggestedComps;
 }
 
 function loadScript(name) {
