@@ -1,4 +1,4 @@
-const currentSet = 8.5;
+const currentSet = 9;
 
 loadScript("champions");
 loadScript("items");
@@ -168,7 +168,19 @@ function checkCombinableItems() {
 
 function appendComp(comp) {
 	var paragraph = document.createElement('p');
-	var compHtml = '<b>' + comp.name + '</b> ||&nbsp;';
+	var compHtml = '';
+	var tierLabel = comp.tier ? `${comp.tier}: ` : '';
+	if (comp.link) {
+		var link = document.createElement('a');
+		link.href = comp.link;
+		link.innerText = `${tierLabel}${comp.name}`;
+		link.target = '_blank'
+		compHtml += link.outerHTML;
+	} else {
+		compHtml += `<b>${tierLabel}${comp.name}</b>`;
+	}
+	
+	compHtml += ' ||&nbsp;';
 	compHtml += comp.champs.join(', ');
 	
 	compHtml += '<br/><b>Itemize</b> || &nbsp;';
@@ -223,7 +235,8 @@ function getSuggestedComps() {
                     return false;
             }
 
-            let firstItem = window.combinedItems.find(item => item.name == comp.requiredItems[0]);			
+			let firstItem = window.combinedItems.find(item => item.name == comp.requiredItems[0]);
+			if (!firstItem) console.log(comp);			
             if (!window.selectedItems.some(selectedItem => firstItem.name == selectedItem || firstItem.baseItems.includes(selectedItem))) {
                 return false;
             }
@@ -238,7 +251,16 @@ function getSuggestedComps() {
             return true;
         });
    
-    return suggestedComps;
+	return suggestedComps
+		.sort((comp1, comp2) => {
+			if (!comp1.tier || !comp2.tier)
+				return 0;
+			if (comp1.tier > comp2.tier)
+				return 1;
+			if (comp1.tier < comp2.tier)
+				return -1;
+			return 0;	
+		});
 }
 
 function loadScript(name) {

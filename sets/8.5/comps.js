@@ -47,8 +47,7 @@ let exportedComps = [
             "Sylas",
             "Jinx",
             "Riven",
-            "Vayne",
-            "Alistar"
+            "Vayne"
         ],
         "fullItems": [
             "Spear of Shojin",
@@ -64,8 +63,7 @@ let exportedComps = [
             "Sylas",
             "Jinx",
             "Riven",
-            "Vayne",
-            "Alistar"
+            "Vayne"
         ],
         "fullItems": [
             "Spear of Shojin",
@@ -74,24 +72,7 @@ let exportedComps = [
         ]
     },
     {
-        "name": "League of Draven",
-        "champs": [
-            "Draven",
-            "Poppy",
-            "Wukong",
-            "Vi",
-            "Jax",
-            "Gangplank",
-            "Malphite"
-        ],
-        "fullItems": [
-            "Infinity Edge",
-            "Last Whisper",
-            "Hextech Gunblade"
-        ]
-    },
-    {
-        "name": "Lucian",
+        "name": "Lucian (Supers)",
         "champs": [
             "Lucian",
             "Pantheon",
@@ -108,14 +89,15 @@ let exportedComps = [
         ]
     },
     {
-        "name": "Lulu",
+        "name": "Lulu (Supers)",
         "champs": [
             "Lulu",
             "Pantheon",
             "Renekton",
             "Lee Sin",
             "Sona",
-            "Gangplank"
+            "Gangplank",
+            "Malphite"
         ],
         "fullItems": [
             "Blue Buff",
@@ -130,14 +112,27 @@ let exportedComps = [
             "Nasus",
             "Sylas",
             "Jinx",
-            "Riven",
-            "Alistar",
-            "Nilah"
+            "Riven"
         ],
         "fullItems": [
             "Spear of Shojin",
             "Infinity Edge",
             "Hand of Justice"
+        ]
+    },
+    {
+        "name": "Vayne Alt",
+        "champs": [
+            "Vayne",
+            "Nasus",
+            "Sylas",
+            "Jinx",
+            "Riven"
+        ],
+        "fullItems": [
+            "Guinsoo's Rageblade",
+            "Infinity Edge",
+            "Giant Slayer"
         ]
     },
     {
@@ -147,8 +142,7 @@ let exportedComps = [
             "Kayle",
             "Annie",
             "Fiora",
-            "Nilah",
-            "Vayne"
+            "Nilah"
         ],
         "fullItems": [
             "Guinsoo's Rageblade",
@@ -206,15 +200,28 @@ let exportedComps = [
         ]
     },
     {
+        "name": "Lulu > TF (Ox Force Spellslingers)",
+        "champs": [
+            "Lulu",
+            "Poppy",
+            "Annie",
+            "Fiora",
+            "Sona"
+        ],
+        "fullItems": [
+            "Guinsoo's Rageblade",
+            "Statikk Shiv",
+            "Hextech Gunblade"
+        ]
+    },
+    {
         "name": "Yasuo > Warwick (LaserCorps Hackers)",
         "champs": [
             "Yasuo",
             "Ashe",
             "Renekton",
-            "Pyke",
-            "Vayne",
-            "Sona",
-            "Shen"
+            "Vi",
+            "Vayne"
         ],
         "fullItems": [
             "Bloodthirster",
@@ -264,14 +271,89 @@ let exportedComps = [
             "Lulu",
             "Poppy",
             "Rell",
-            "Annie",
-            "Nilah",
-            "Alistar"
+            "Annie"
         ],
         "fullItems": [
             "Spear of Shojin",
             "Jeweled Gauntlet",
             "Hextech Gunblade"
+        ]
+    },
+    {
+        "name": "XP: Fiora > Jhin (Riftwalker Mascots)",
+        "champs": [
+            "Fiora",
+            "Nasus",
+            "Malphite",
+            "Vex",
+            "Alistar",
+            "Pyke"
+        ],
+        "fullItems": [
+            "Infinity Edge",
+            "Last Whisper",
+            "Giant Slayer"
+        ]
+    },
+    {
+        "name": "Camille > Jhin (Renegades)",
+        "champs": [
+            "Camille",
+            "Blitzcrank",
+            "Lucian",
+            "Sylas",
+            "Vi",
+            "Pyke"
+        ],
+        "fullItems": [
+            "Infinity Edge",
+            "Last Whisper",
+            "Giant Slayer"
+        ]
+    },
+    {
+        "name": "Lucian (Quickdraws)",
+        "champs": [
+            "Lucian",
+            "Blitzcrank",
+            "Sylas",
+            "Camille",
+            "Ezreal"
+        ],
+        "fullItems": [
+            "Blue Buff",
+            "Jeweled Gauntlet",
+            "Giant Slayer"
+        ]
+    },
+    {
+        "name": "Ashe > Belveth (Aegis Threats)",
+        "champs": [
+            "Ashe",
+            "Renekton",
+            "Vi",
+            "Yasuo",
+            "Vayne"
+        ],
+        "fullItems": [
+            "Last Whisper",
+            "Hextech Gunblade",
+            "Giant Slayer"
+        ]
+    },
+    {
+        "name": "Ashe > Samira (Defender Sureshot)",
+        "champs": [
+            "Ashe",
+            "Renekton",
+            "Vi",
+            "Yasuo",
+            "Vayne"
+        ],
+        "fullItems": [
+            "Giant Slayer",
+            "Hextech Gunblade",
+            "Last Whisper"
         ]
     }
 ];
